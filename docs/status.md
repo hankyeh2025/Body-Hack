@@ -8,9 +8,9 @@
 
 | 項目 | 狀態 |
 |------|------|
-| 階段 | Stage 1 - 系統架構設計 |
+| 階段 | Stage 1 完成，待進入 Stage 2 |
 | 角色 | Tim |
-| 輪次 | 第 3 輪完成，待進行第 4 輪 |
+| 輪次 | 第 4 輪完成 |
 | 版本 | v0.0.0 |
 
 ---
@@ -22,7 +22,7 @@
 - [x] 第 1 輪：CLAUDE.md + 專案結構初始化
 - [x] 第 2 輪：tech_constraints.md
 - [x] 第 3 輪：system_blueprint.md
-- [ ] 第 4 輪：高層級 .feature
+- [x] 第 4 輪：高層級 .feature
 
 ### Stage 2: May（UI 設計）
 
@@ -42,12 +42,11 @@
 
 ### 最近完成
 
-- system_blueprint.md 建立
-- 完整定義：5 張 Sheet 欄位、App 模組規格、OCR prompt 模板、AI 洞察框架、週期檢視 Skill 規格
+- 高層級 .feature 建立（5 個功能領域）
 
 ### 下一步
 
-- Tim 第 4 輪：高層級 .feature（功能範圍骨架）
+- 呼叫 May 進入 UI 設計
 
 ### 已確認的設計決策
 
