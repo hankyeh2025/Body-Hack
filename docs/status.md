@@ -10,7 +10,7 @@
 |------|------|
 | 階段 | Stage 1 - 系統架構設計 |
 | 角色 | Tim |
-| 輪次 | 第 1 輪（共 4 輪） |
+| 輪次 | 第 2 輪（共 4 輪） |
 | 版本 | v0.0.0 |
 
 ---
@@ -20,7 +20,7 @@
 ### Stage 1: Tim（系統架構）
 
 - [x] 第 1 輪：CLAUDE.md + 專案結構初始化
-- [ ] 第 2 輪：tech_constraints.md
+- [x] 第 2 輪：tech_constraints.md
 - [ ] 第 3 輪：system_blueprint.md
 - [ ] 第 4 輪：高層級 .feature
 
@@ -42,12 +42,11 @@
 
 ### 最近完成
 
-- 專案結構初始化
-- CLAUDE.md 建立
+- tech_constraints.md 建立
 
 ### 下一步
 
-- Tim 第 2 輪：整理技術限制（tech_constraints.md）
+- Tim 第 3 輪：系統藍圖（system_blueprint.md）
 
 ### 已確認的設計決策
 
