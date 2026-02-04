@@ -6,7 +6,7 @@
 
 ## 當前階段
 
-**Phase 3：時間軸顯示** ⏳ 待開始
+**Phase 3：時間軸顯示** 📝 BDD 場景已展開
 
 ---
 
@@ -36,8 +36,8 @@
 - [x] 重構：抽取 close_dialog 共用函式
 - [x] Phase 2 Report 歸檔
 
-### Phase 3 ⏳ 待開始
-- [ ] BDD 場景展開
+### Phase 3 📝 BDD 場景已展開
+- [x] BDD 場景展開（specs/phase3_timeline.feature）
 - [ ] 時間軸顯示
 - [ ] 儀表板元件
 - [ ] 日期切換
@@ -64,23 +64,23 @@
 ## 交接資訊
 
 ### 當前角色
-Bob（Phase 2 歸檔完成）
+Bob（Phase 3 BDD 場景已展開）
 
 ### 已完成
 1. Phase 0+1 歸檔
 2. Phase 2 開發、測試、Code Review、歸檔
+3. Phase 3 BDD 場景展開（specs/phase3_timeline.feature）
 
 ### 下一步
-1. Bob 展開 Phase 3 BDD 場景
-2. Bob 產出 Phase 3 開發 Prompt
-3. Claude Code 開發
-4. Sam 測試
+1. Bob 產出 Phase 3 開發 Prompt
+2. Claude Code 開發
+3. Sam 測試
 
 ### 下次對話開場
 ```
 呼叫 Bob，繼續 Body Hack 專案
 
-Phase 2 已歸檔，請展開 Phase 3 BDD 場景並產出開發 Prompt
+Phase 3 BDD 場景已展開，等待開發 Prompt
 ```
 
 ---
@@ -92,6 +92,7 @@ Phase 2 已歸檔，請展開 Phase 3 BDD 場景並產出開發 Prompt
 | Phase 0+1 報告 | docs/phase_reports/phase_0_1_report.md |
 | Phase 2 報告 | docs/phase_reports/phase_2_report.md |
 | Phase 2 場景 | specs/phase2_input_basic.feature |
+| Phase 3 場景 | specs/phase3_timeline.feature |
 | 開發路線圖 | docs/design/roadmap.md |
 | 系統藍圖 | docs/design/system_blueprint.md |
 | UI 規格 | docs/design/ui_spec.md |
