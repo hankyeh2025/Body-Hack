@@ -6,7 +6,7 @@
 
 ## 當前階段
 
-**Phase 2：最小可用輸入** ⏳ 待開始
+**Phase 2：最小可用輸入** ⏳ 待產出開發 Prompt
 
 ---
 
@@ -22,12 +22,15 @@
 - [x] Gemini API 連線
 - [x] 資料模型定義
 - [x] 連線測試頁面
+- [x] Phase 0+1 Report 歸檔
 
 ### Phase 2 ⏳
-- [ ] 統一輸入 Dialog
-- [ ] AI 類型辨識
-- [ ] 飲食記錄寫入
-- [ ] 預覽與修改功能
+- [x] BDD 場景展開（specs/phase2_input_basic.feature）
+- [ ] 開發 Prompt 產出
+- [ ] Claude Code 開發
+- [ ] Sam 測試
+- [ ] Bob Code Review
+- [ ] Phase Report
 
 ---
 
@@ -48,29 +51,40 @@
 
 ---
 
+## 交接資訊
+
+### 當前角色
+Bob（開發規劃師）
+
+### 當前輪次
+Phase 2 - 準備產出開發 Prompt
+
+### 已完成
+1. Phase 0+1 歸檔完成
+2. Phase 2 BDD 場景已展開（specs/phase2_input_basic.feature）
+3. Roadmap 已更新
+
+### 下一步
+1. Bob 產出 Phase 2 開發 Prompt
+2. Claude Code 開發
+3. Sam 測試
+4. Bob Code Review + Phase Report
+
+### 下次對話開場
+```
+呼叫 Bob，繼續 Body Hack 專案
+
+Phase 2 的 BDD 場景已就緒，請產出開發 Prompt
+```
+
+---
+
 ## 關鍵文件
 
 | 文件 | 路徑 |
 |------|------|
 | Phase 0+1 報告 | docs/phase_reports/phase_0_1_report.md |
+| Phase 2 場景 | specs/phase2_input_basic.feature |
 | 開發路線圖 | docs/design/roadmap.md |
 | 系統藍圖 | docs/design/system_blueprint.md |
 | UI 規格 | docs/design/ui_spec.md |
-
----
-
-## 交接給 Phase 2
-
-### 已完成的基礎設施
-- `get_sheets_client()`：取得 Sheets 客戶端單例
-- `get_gemini_client()`：取得 Gemini 客戶端單例
-- 資料模型：PhysioRecord, StructuredEvent, SimpleEvent, Insight, Goal, AnalyticsEvent
-
-### Phase 2 開發重點
-1. 建立 `features/input/` 模組
-2. 實作統一輸入 Dialog UI
-3. 實作 AI 類型辨識 Prompt
-4. 串接 Sheets 寫入
-
-### 對應 BDD 場景
-- specs/phase2_input_basic.feature
