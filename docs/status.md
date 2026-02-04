@@ -1,12 +1,12 @@
 # Body Hack 專案狀態
 
-> 最後更新：2025-02-04 by Bob
+> 最後更新：2026-02-04 by Claude Code
 
 ---
 
 ## 當前階段
 
-**Phase 2：最小可用輸入** ⏳ 待產出開發 Prompt
+**Phase 2：基本輸入流程** ⏳ 進行中
 
 ---
 
@@ -26,8 +26,12 @@
 
 ### Phase 2 ⏳
 - [x] BDD 場景展開（specs/phase2_input_basic.feature）
-- [ ] 開發 Prompt 產出
-- [ ] Claude Code 開發
+- [x] 輸入 Dialog UI（features/input/input_dialog.py）
+- [x] AI 類型辨識（features/input/ai_recognizer.py）
+- [x] 預覽編輯元件（features/input/preview_editor.py）
+- [x] 飲食記錄儲存
+- [x] 錯誤處理（空白輸入、AI 失敗、網路錯誤）
+- [x] 共用 UI 元件（utils/ui_components.py）
 - [ ] Sam 測試
 - [ ] Bob Code Review
 - [ ] Phase Report
@@ -36,9 +40,7 @@
 
 ## 版本
 
-當前版本：v1.0.0
-
-下一版本：v2.0.0（Phase 2 完成後）
+當前版本：v2.0.0
 
 ---
 
@@ -54,28 +56,20 @@
 ## 交接資訊
 
 ### 當前角色
-Bob（開發規劃師）
-
-### 當前輪次
-Phase 2 - 準備產出開發 Prompt
+Claude Code（開發）
 
 ### 已完成
 1. Phase 0+1 歸檔完成
-2. Phase 2 BDD 場景已展開（specs/phase2_input_basic.feature）
-3. Roadmap 已更新
+2. Phase 2 BDD 場景已展開
+3. Phase 2 開發完成：
+   - `src/features/input/` 模組（input_dialog, ai_recognizer, preview_editor）
+   - `src/utils/ui_components.py` 共用元件
+   - `src/app.py` 更新（＋輸入按鈕 + Dialog）
+   - 儲存邏輯寫入 Structured_Events Sheet
 
 ### 下一步
-1. Bob 產出 Phase 2 開發 Prompt
-2. Claude Code 開發
-3. Sam 測試
-4. Bob Code Review + Phase Report
-
-### 下次對話開場
-```
-呼叫 Bob，繼續 Body Hack 專案
-
-Phase 2 的 BDD 場景已就緒，請產出開發 Prompt
-```
+1. Sam 測試（依 specs/phase2_input_basic.feature 驗收）
+2. Bob Code Review + Phase Report
 
 ---
 
