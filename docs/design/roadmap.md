@@ -8,9 +8,9 @@
 
 | Phase | 目標 | 狀態 |
 |-------|------|------|
-| 0 | 驗證部署骨架 | ⏳ 進行中 |
-| 1 | 核心連線 | 待開始 |
-| 2 | 最小可用輸入 | 待開始 |
+| 0 | 驗證部署骨架 | ✅ 完成 |
+| 1 | 核心連線 | ✅ 完成 |
+| 2 | 最小可用輸入 | ⏳ 進行中 |
 | 3 | 看得到成果 | 待開始 |
 | 4 | 即時回饋 | 待開始 |
 | 5 | 完整輸入 | 待開始 |
@@ -20,45 +20,32 @@
 
 ---
 
-## Phase 0：驗證部署骨架
+## Phase 0：驗證部署骨架 ✅
 
-**目標**：確認模組化專案結構能在 Streamlit Cloud 正常運作
+**完成日期**：2025-02-04
 
-**包含模組**：
-- 專案檔案結構（src/app.py + core/ + features/ + utils/）
-- Streamlit Cloud 部署設定
+**驗收方式**：產品負責人驗收（無 BDD 場景）
 
-**驗收標準**：
-- [ ] 本地 `streamlit run src/app.py` 能執行
-- [ ] 部署到 Streamlit Cloud 成功
-- [ ] app.py 能 import core 和 features 模組
-- [ ] 畫面顯示 Hello World + 模組載入確認訊息
-
-**對應場景**：無（基礎設施驗證）
+**成果**：
+- 模組化結構部署成功
+- import 機制正常運作
 
 ---
 
-## Phase 1：核心連線
+## Phase 1：核心連線 ✅
 
-**目標**：建立與外部服務的連線能力
+**完成日期**：2025-02-04
 
-**包含模組**：
-- core/sheets_client.py（Google Sheets 連線）
-- core/gemini_client.py（Gemini API 連線）
-- core/data_models.py（Pydantic 資料模型）
-- Streamlit Secrets 設定
+**驗收方式**：產品負責人驗收（無 BDD 場景）
 
-**驗收標準**：
-- [ ] 能讀取 Google Sheet 資料
-- [ ] 能寫入 Google Sheet 資料
-- [ ] 能呼叫 Gemini API 取得回應
-- [ ] 錯誤處理機制正常（連線失敗有提示）
-
-**對應場景**：specs/physio_data.feature（部分）
+**成果**：
+- Google Sheets 連線正常
+- Gemini API 連線正常
+- 資料模型定義完成
 
 ---
 
-## Phase 2：最小可用輸入
+## Phase 2：最小可用輸入 ⏳
 
 **目標**：跑通第一條完整輸入路徑
 
@@ -73,7 +60,9 @@
 - [ ] 顯示預覽，可修改
 - [ ] 儲存後寫入 Structured_Events Sheet
 
-**對應場景**：specs/input.feature（基本輸入流程）
+**對應場景**：specs/phase2_input_basic.feature
+
+**測試方式**：Sam 正式測試
 
 ---
 
@@ -208,3 +197,19 @@
 ### 未來考慮
 - [ ] Garmin API 串接
 - [ ] 原生 App
+
+---
+
+## 測試流程說明
+
+| Phase | 測試方式 | 說明 |
+|-------|----------|------|
+| 0-1 | 產品負責人驗收 | 基礎設施驗證，無使用者功能 |
+| 2+ | Bob → Claude Code → Sam → Bob | 完整開發迴圈 |
+
+從 Phase 2 開始，每個 Phase 都會：
+1. Bob 產出開發 Prompt
+2. Claude Code 開發
+3. Sam 依 BDD 場景測試
+4. Sam 通過後 Bob Code Review
+5. Bob 產出 Phase Report
