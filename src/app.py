@@ -11,7 +11,11 @@ from core import (
     StructuredEvent,
     generate_id
 )
+from core.record_service import get_records_by_date, get_dashboard_stats
 from features.input import show_input_dialog
+from features.date_picker import render_date_picker
+from features.dashboard import render_dashboard
+from features.timeline import render_timeline
 
 st.set_page_config(
     page_title="Body Hack",
@@ -26,15 +30,54 @@ st.caption("健康數據追蹤系統")
 if st.session_state.pop("save_success", False):
     st.toast("✅ 記錄已儲存！")
 
-# === Phase 2：主要輸入 UI ===
-if st.button("＋輸入", type="primary", use_container_width=True):
-    st.session_state.show_input_dialog = True
-    st.session_state.input_phase = "input"
+# === 頂部：日期選擇 + 儀表板 ===
+selected_date = render_date_picker()
+
+# === 載入記錄 ===
+load_error = None
+records = []
+
+# 支援重試：點擊重試時清除錯誤並重新載入
+if st.session_state.pop("retry_load", False):
+    pass  # 繼續正常載入流程
+
+try:
+    with st.spinner("載入記錄中..."):
+        records = get_records_by_date(selected_date)
+except Exception as e:
+    load_error = str(e)
+
+# === 儀表板 ===
+if load_error is None:
+    stats = get_dashboard_stats(records)
+    render_dashboard(stats)
+else:
+    render_dashboard({"water_ml": 0, "meal_count": 0, "smoke_count": 0})
+
+st.divider()
+
+# === 操作按鈕：＋輸入 / 🤖 AI ===
+col_input, col_ai = st.columns(2)
+with col_input:
+    if st.button("＋ 輸入", type="primary", use_container_width=True):
+        st.session_state.show_input_dialog = True
+        st.session_state.input_phase = "input"
+with col_ai:
+    st.button("🤖 AI", use_container_width=True, disabled=True)
 
 if st.session_state.get("show_input_dialog", False):
     show_input_dialog()
 
 st.divider()
+
+# === 時間軸 ===
+if load_error is not None:
+    st.error("無法載入記錄，請檢查網路連線")
+    if st.button("重試"):
+        st.session_state.retry_load = True
+        st.rerun()
+else:
+    render_timeline(records)
 
 # === Phase 1：連線測試（保留供除錯） ===
 with st.expander("🔧 連線測試（Phase 1）"):

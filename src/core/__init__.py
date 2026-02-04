@@ -12,6 +12,7 @@ from .data_models import (
     AnalyticsEvent,
     generate_id
 )
+from .record_service import get_records_by_date, get_dashboard_stats
 
 __all__ = [
     "SheetsClient",
@@ -24,5 +25,7 @@ __all__ = [
     "Insight",
     "Goal",
     "AnalyticsEvent",
-    "generate_id"
+    "generate_id",
+    "get_records_by_date",
+    "get_dashboard_stats",
 ]

@@ -6,7 +6,7 @@
 
 ## 當前階段
 
-**Phase 3：時間軸顯示** 📝 BDD 場景已展開
+**Phase 3：時間軸顯示** 🔨 開發中
 
 ---
 
@@ -36,19 +36,23 @@
 - [x] 重構：抽取 close_dialog 共用函式
 - [x] Phase 2 Report 歸檔
 
-### Phase 3 📝 BDD 場景已展開
+### Phase 3 🔨 開發中
 - [x] BDD 場景展開（specs/phase3_timeline.feature）
-- [ ] 時間軸顯示
-- [ ] 儀表板元件
-- [ ] 日期切換
+- [x] 記錄讀取服務（core/record_service.py）
+- [x] 時間軸顯示（features/timeline/timeline_view.py）
+- [x] 儀表板元件（features/dashboard/dashboard_view.py）
+- [x] 日期切換（features/date_picker/date_picker.py）
+- [x] 主畫面整合（app.py）
+- [x] 錯誤處理（載入失敗 + 重試按鈕）
+- [ ] Sam 測試
 
 ---
 
 ## 版本
 
-當前版本：v2.0.1
+當前版本：v3.0.0
 
-下一版本：v3.0.0（Phase 3 完成後）
+下一版本：v3.1.0（Phase 3 測試通過後）
 
 ---
 
@@ -64,23 +68,32 @@
 ## 交接資訊
 
 ### 當前角色
-Bob（Phase 3 BDD 場景已展開）
+Claude Code（Phase 3 開發完成）
 
 ### 已完成
 1. Phase 0+1 歸檔
 2. Phase 2 開發、測試、Code Review、歸檔
 3. Phase 3 BDD 場景展開（specs/phase3_timeline.feature）
+4. Phase 3 開發：時間軸、儀表板、日期切換、錯誤處理
+
+### 本次變更檔案
+- `src/core/record_service.py`（新增）
+- `src/features/timeline/timeline_view.py`（新增）
+- `src/features/dashboard/dashboard_view.py`（新增）
+- `src/features/date_picker/date_picker.py`（新增）
+- `src/app.py`（更新）
+- `src/core/__init__.py`（更新）
 
 ### 下一步
-1. Bob 產出 Phase 3 開發 Prompt
-2. Claude Code 開發
-3. Sam 測試
+1. Sam 測試（依 specs/phase3_timeline.feature 14 個場景）
+2. Bob Code Review
+3. Phase 3 歸檔
 
 ### 下次對話開場
 ```
 呼叫 Bob，繼續 Body Hack 專案
 
-Phase 3 BDD 場景已展開，等待開發 Prompt
+Phase 3 開發已完成，等待 Sam 測試
 ```
 
 ---
