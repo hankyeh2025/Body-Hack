@@ -31,9 +31,9 @@
 │  │  ┌────────┐ ┌─────────────────┐ ┌──────────────┐   │   │
 │  │  │ Physio │ │ Structured_Events│ │ Simple_Events│   │   │
 │  │  └────────┘ └─────────────────┘ └──────────────┘   │   │
-│  │  ┌──────────┐ ┌───────┐                            │   │
-│  │  │ Insights │ │ Goals │                            │   │
-│  │  └──────────┘ └───────┘                            │   │
+│  │  ┌──────────┐ ┌───────┐ ┌───────────┐              │   │
+│  │  │ Insights │ │ Goals │ │ Analytics │              │   │
+│  │  └──────────┘ └───────┘ └───────────┘              │   │
 │  └─────────────────────┬───────────────────────────────┘   │
 │                        │                                    │
 │                        ▼                                    │
@@ -162,6 +162,30 @@ AI 產出的洞察紀錄。
 | created_at | string | 建立時間 | `2025-01-01T00:00:00` |
 | updated_at | string | 更新時間 | `2025-01-15T00:00:00` |
 | note | string | 備註 | `三個月減脂計畫` |
+
+---
+
+### 2.6 Sheet: Analytics（使用追蹤）
+
+| 欄位 | 型別 | 說明 |
+|------|------|------|
+| timestamp | datetime | 事件時間 |
+| event | string | 事件名稱 |
+| input_type | string | 輸入類型（meal/glucose/exercise 等） |
+| input_method | string | 輸入方式（photo/text/photo_and_text/manual） |
+| with_feedback | boolean | 是否要求回饋 |
+| is_ritual | boolean | 是否為儀式 |
+| ritual_type | string | 儀式類型（morning/night/null） |
+| saved | boolean | AI 回饋是否保存 |
+| turns | integer | 對話輪數 |
+
+#### 追蹤事件清單
+
+| 事件 | 觸發時機 | 追蹤目的 |
+|------|----------|----------|
+| input_save | 儲存任何記錄 | 輸入完成率 + 類型分布 |
+| ai_consult | 開始諮詢對話 | AI 諮詢使用率 |
+| ai_weekly_review | 開始 7 天報告 | 檢討功能使用率 |
 
 ---
 
