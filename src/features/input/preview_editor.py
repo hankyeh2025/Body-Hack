@@ -8,6 +8,7 @@ from datetime import datetime
 
 from core import get_sheets_client, StructuredEvent
 from utils.ui_components import show_error_message
+from .dialog_utils import close_dialog
 
 
 def show_preview_editor(result: Dict[str, Any]):
@@ -80,7 +81,7 @@ def _show_meal_display(data: Dict[str, Any]):
             st.rerun()
     with col3:
         if st.button("✕ 取消", use_container_width=True):
-            _close_dialog()
+            close_dialog()
 
 
 def _show_meal_edit_form(data: Dict[str, Any]):
@@ -169,7 +170,7 @@ def _save_meal_record(data: Dict[str, Any]) -> None:
         success = client.append_row("Structured_Events", event.model_dump())
         if success:
             st.session_state.save_success = True
-            _close_dialog()
+            close_dialog()
         else:
             show_error_message("儲存失敗，請重試")
     except Exception as e:
@@ -185,7 +186,7 @@ def _show_retry_button():
             st.rerun()
     with col2:
         if st.button("✕ 關閉", use_container_width=True, key="retry_close"):
-            _close_dialog()
+            close_dialog()
 
 
 def _show_manual_fallback():
@@ -216,15 +217,4 @@ def _show_manual_fallback():
             st.rerun()
     with col2:
         if st.button("✕ 關閉", key="manual_close"):
-            _close_dialog()
-
-
-def _close_dialog():
-    """關閉 Dialog 並清理狀態"""
-    st.session_state.show_input_dialog = False
-    st.session_state.input_phase = "input"
-    st.session_state.preview_editing = False
-    for key in ["ai_result", "original_input"]:
-        if key in st.session_state:
-            del st.session_state[key]
-    st.rerun()
+            close_dialog()

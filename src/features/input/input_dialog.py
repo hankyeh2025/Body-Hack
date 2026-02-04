@@ -6,6 +6,7 @@ import streamlit as st
 
 from .ai_recognizer import recognize_input
 from .preview_editor import show_preview_editor
+from .dialog_utils import close_dialog
 
 
 @st.dialog("輸入記錄", width="large")
@@ -42,7 +43,7 @@ def _show_input_phase():
                 st.rerun()
     with col2:
         if st.button("✕ 關閉", use_container_width=True):
-            _close_dialog()
+            close_dialog()
 
 
 def _show_preview_phase():
@@ -54,14 +55,3 @@ def _show_preview_phase():
         return
 
     show_preview_editor(result)
-
-
-def _close_dialog():
-    """關閉 Dialog 並清理狀態"""
-    st.session_state.show_input_dialog = False
-    st.session_state.input_phase = "input"
-    st.session_state.preview_editing = False
-    for key in ["ai_result", "original_input"]:
-        if key in st.session_state:
-            del st.session_state[key]
-    st.rerun()
