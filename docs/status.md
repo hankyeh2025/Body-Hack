@@ -1,6 +1,6 @@
 # Body Hack 專案狀態
 
-> 最後更新：2026-02-04 by Claude Code
+> 最後更新：2026-02-05 by Claude Code
 
 ---
 
@@ -32,7 +32,7 @@
 - [x] 飲食記錄儲存
 - [x] 錯誤處理（空白輸入、AI 失敗、網路錯誤）
 - [x] 共用 UI 元件（utils/ui_components.py）
-- [ ] Sam 測試
+- [x] Sam 測試 ✅ 7/7 場景通過（2026-02-05）
 - [ ] Bob Code Review
 - [ ] Phase Report
 
@@ -56,20 +56,19 @@
 ## 交接資訊
 
 ### 當前角色
-Claude Code（開發）
+Sam（測試完成）→ 等待 Bob Code Review
 
 ### 已完成
 1. Phase 0+1 歸檔完成
 2. Phase 2 BDD 場景已展開
-3. Phase 2 開發完成：
-   - `src/features/input/` 模組（input_dialog, ai_recognizer, preview_editor）
-   - `src/utils/ui_components.py` 共用元件
-   - `src/app.py` 更新（＋輸入按鈕 + Dialog）
-   - 儲存邏輯寫入 Structured_Events Sheet
+3. Phase 2 開發完成
+4. Phase 2 Sam 測試通過（2026-02-05）
+   - 手動測試：7/7 場景通過
+   - 測試項目：開啟 Dialog、飲食輸入、AI 辨識、預覽編輯、儲存、取消、錯誤處理
 
 ### 下一步
-1. Sam 測試（依 specs/phase2_input_basic.feature 驗收）
-2. Bob Code Review + Phase Report
+1. Bob Code Review
+2. Bob 產出 Phase Report
 
 ---
 
