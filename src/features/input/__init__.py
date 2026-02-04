@@ -2,9 +2,11 @@
 from .input_dialog import show_input_dialog
 from .ai_recognizer import recognize_input
 from .preview_editor import show_preview_editor
+from .dialog_utils import close_dialog
 
 __all__ = [
     "show_input_dialog",
     "recognize_input",
-    "show_preview_editor"
+    "show_preview_editor",
+    "close_dialog"
 ]
