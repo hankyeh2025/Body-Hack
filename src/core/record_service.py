@@ -2,6 +2,7 @@
 記錄讀取服務
 整合 Structured_Events + Simple_Events，提供統一的記錄查詢介面
 """
+from datetime import datetime as dt
 from typing import List, Dict, Any
 from .sheets_client import get_sheets_client
 
@@ -11,6 +12,7 @@ CATEGORY_ICONS = {
     "meal": "🍽",
     "water": "💧",
     "exercise": "🏃",
+    "smoke": "🚬",
     "吸菸": "🚬",
 }
 DEFAULT_ICON = "📝"
@@ -92,7 +94,15 @@ def get_records_by_date(date_str: str) -> List[Dict[str, Any]]:
     for r in simple:
         records.append(_normalize_record(r, "simple"))
 
-    records.sort(key=lambda x: x["datetime"], reverse=True)
+    def _sort_key(record):
+        """解析 datetime 字串為時間物件，確保正確排序"""
+        raw_dt = record.get("datetime", "")
+        try:
+            return dt.fromisoformat(raw_dt)
+        except (ValueError, TypeError):
+            return dt.min
+
+    records.sort(key=_sort_key, reverse=True)
     return records
 
 
@@ -125,7 +135,7 @@ def get_dashboard_stats(records: List[Dict[str, Any]]) -> Dict[str, Any]:
         elif category == "meal" and r["source"] == "structured":
             meal_count += 1
 
-        elif category == "吸菸" and r["source"] == "simple":
+        elif category in ("smoke", "吸菸") and r["source"] == "simple":
             smoke_count += 1
 
     return {

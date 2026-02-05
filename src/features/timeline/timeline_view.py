@@ -17,11 +17,12 @@ def render_timeline(records: List[Dict[str, Any]]):
         st.info("今天還沒有記錄，點擊「＋輸入」開始")
         return
 
-    for record in records:
-        time_str = record.get("time", "")
-        icon = record.get("icon", "📝")
-        content = record.get("content", "")
+    with st.container(height=400):
+        for record in records:
+            time_str = record.get("time", "")
+            icon = record.get("icon", "📝")
+            content = record.get("content", "")
 
-        st.markdown(
-            f"**{time_str}**&ensp;{icon}&ensp;{content}"
-        )
+            st.markdown(
+                f"**{time_str}**&ensp;{icon}&ensp;{content}"
+            )

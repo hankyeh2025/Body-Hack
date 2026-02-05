@@ -50,7 +50,7 @@
 
 ## 版本
 
-當前版本：v3.0.0
+當前版本：v3.0.1
 
 下一版本：v3.1.0（Phase 3 測試通過後）
 
@@ -75,14 +75,11 @@ Claude Code（Phase 3 開發完成）
 2. Phase 2 開發、測試、Code Review、歸檔
 3. Phase 3 BDD 場景展開（specs/phase3_timeline.feature）
 4. Phase 3 開發：時間軸、儀表板、日期切換、錯誤處理
+5. v3.0.1 修復：時間軸排序、記錄截斷、吸菸計數
 
-### 本次變更檔案
-- `src/core/record_service.py`（新增）
-- `src/features/timeline/timeline_view.py`（新增）
-- `src/features/dashboard/dashboard_view.py`（新增）
-- `src/features/date_picker/date_picker.py`（新增）
-- `src/app.py`（更新）
-- `src/core/__init__.py`（更新）
+### 本次變更檔案（v3.0.1）
+- `src/core/record_service.py`（修復排序 + 吸菸 category 過濾）
+- `src/features/timeline/timeline_view.py`（修復截斷，加入可捲動容器）
 
 ### 下一步
 1. Sam 測試（依 specs/phase3_timeline.feature 14 個場景）
